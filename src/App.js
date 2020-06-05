@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Search from './componetns/Search';
+import Results from './componetns/Results';
 import axios from 'axios';
 
 function App() {
   const [state, setstate] = useState({
     s: "",
-    result: [],
+    results: [],
     selected: {}
   });
   const apiurl = "http://www.omdbapi.com/?i=tt3896198&apikey=7d08aff3";
@@ -17,7 +18,7 @@ function App() {
           let result = data.Search
           console.log(result);
           setstate( prevState =>{
-            return {...prevState, result: result}
+            return {...prevState, results: result}
           });
         });
       }
@@ -38,6 +39,7 @@ function App() {
       </header>
       <main>
         <Search handleSearch={handleSearch} search={search}/>
+        <Results results={state.results}/>
       </main>
     </div>
   );
