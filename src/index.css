@@ -57,6 +57,7 @@ section {
   padding: 15px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .results .result img {
